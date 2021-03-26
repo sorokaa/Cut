@@ -1,0 +1,14 @@
+img {
+    width: 30vw;
+    height: 30vh;
+}
+
+.number {
+    font-size: 60px;
+    margin-bottom: 0;
+}
+
+.text {
+    font-size: 40px;
+    margin: 0;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wrong link</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/error.css}" />
+</head>
+<body>
+
+    <div class="header">
+        <a th:href="@{/main}">Cutter</a>
+    </div>
+
+    <div class="central-block">
+        <h1 class="error number">404</h1>
+        <h2 class="error text">Link not found</h2>
+        <p class="error note">Link does not exist or broken. Try again</p>
+    </div>
+</body>
+</html>
