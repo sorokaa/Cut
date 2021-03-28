@@ -1,44 +1,59 @@
 body {
-    background-color: #222831;
-    font-family: 'BioRhyme', serif;
-    color: white;
-}
-
-.central-block {
-    position: absolute;
-    left: 50%;
-    top: 47%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.header {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    right: 0;
-}
-
-.header a {
-    padding-left: 10px;
-    font-size: 30px;
-    text-decoration: none;
-    color: white;
+  background-color: #222831;
+  font-family: 'BioRhyme', serif;
+  color: white;
 }
 
 h1 {
-    color: white;
+  color: white;
 }
 
 input, button {
-    font-family: inherit;
-    color: black;
-    padding: 10px;
-    margin: 0;
+  font-family: inherit;
+  color: black;
+  padding: 10px;
+  margin: 0;
 }
 
 button {
-    background-color: #ffd369;
-    border: none;
+  background-color: #ffd369;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.header a {
+  padding-left: 10px;
+  font-size: 30px;
+  color: white;
+}
+
+.central-block {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.input-link {
+  width: 500px;
+}
+
+.final-link-block {
+  margin-top: 20px;
+}
+
+.final-link {
+  color: yellow;
 }
