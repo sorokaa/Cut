@@ -17,17 +17,21 @@
     </div>
 
     <div class="central-block">
-        <h1>Hello, Stranger</h1>
-        <p><span th:text="${incorrect}"></span></p>
+
+        <h1>Hello, Stranger!</h1>
+
         <form action="#" th:action="@{/cut}" method="post">
-            <input type="text" name="link" autocomplete="off" placeholder="Put your link here">
+            <input class="input-link" type="text" name="link" autocomplete="off" placeholder="Put your link here">
             <button type="submit">Cut this!</button>
         </form>
 
-        <span th:unless="${newLink == null}">
-            <span th:text="'Congratulations! It is your new link '"></span>
-                <a th:href="@{${newLink}}"><span th:text="${newLink}"></span></a>
-        </span>
+        <p><span th:text="${incorrect}"></span></p>
+        <div class="final-link-block">
+            <span th:unless="${newLink == null}">
+              <span th:text="'Congratulations! It is your new link '"></span>
+              <a th:href="@{${newLink}}"><span class="final-link" th:text="${newLink}"></span></a>
+            </span>
+        </div>
 
     </div>
 </body>
