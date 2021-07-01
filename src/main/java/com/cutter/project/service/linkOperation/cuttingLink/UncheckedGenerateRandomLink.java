@@ -40,6 +40,6 @@ public class UncheckedGenerateRandomLink implements GenerateRandomLink {
 
     @Override
     public String generate(int linkLength) {
-        return "localhost:8080/" + generateLinkFromBuffer(linkLength);
+        return "https://cuting-master.herokuapp.com/" + generateLinkFromBuffer(linkLength);
     }
 }
