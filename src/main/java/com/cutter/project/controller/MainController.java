@@ -32,7 +32,7 @@ public class MainController {
     @GetMapping("/{link}")
     public ModelAndView redirectFromSite(@PathVariable("link") String link) {
 
-        Link byCuttedLink = linkService.findByCuttedLink("localhost:8080/" + link);
+        Link byCuttedLink = linkService.findByCuttedLink("https://cuting-master.herokuapp.com/" + link);
 
         if (byCuttedLink == null) {
             throw new ResourceNotFoundException();
