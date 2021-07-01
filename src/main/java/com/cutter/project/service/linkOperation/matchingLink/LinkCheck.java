@@ -1,4 +1,4 @@
-package com.cutter.project.pojo.matchingLink;
+package com.cutter.project.service.linkOperation.matchingLink;
 
 public interface LinkCheck {
     boolean isLink(String link);
