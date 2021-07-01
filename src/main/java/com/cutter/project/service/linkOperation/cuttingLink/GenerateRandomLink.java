@@ -1,4 +1,4 @@
-package com.cutter.project.service.linkOperation.matchingLink.cuttingLink;
+package com.cutter.project.service.linkOperation.cuttingLink;
 
 /**
  * Defined method which should return generated link
