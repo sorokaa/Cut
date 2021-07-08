@@ -1,7 +1,7 @@
 package com.cutter.project.service;
 
-import com.cutter.project.dao.LinkRepository;
 import com.cutter.project.model.Link;
+import com.cutter.project.repositories.LinkRepository;
 import com.cutter.project.service.linkOperation.cuttingLink.GenerateRandomLink;
 import com.cutter.project.service.linkOperation.matchingLink.LinkCheck;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LinkService {
@@ -34,7 +35,22 @@ public class LinkService {
     }
 
     public Link findByCuttedLink(String cuttedLink) {
-        return linkRepository.findByCuttedLink(cuttedLink);
+
+        Optional<Link> fromDb = Optional
+            .ofNullable(linkRepository.findByCuttedLink(cuttedLink));
+
+        Link link = null;
+
+        if (fromDb.isPresent()) {
+
+            link = fromDb.get();
+            Long currentCount = link.getUseCount();
+            link.setUseCount(currentCount + 1);
+
+            linkRepository.save(link);
+        }
+
+        return link;
     }
 
     public String cutLinkAndReturnCutted(String link) {
@@ -47,7 +63,6 @@ public class LinkService {
         try {
 
             String newLink;
-
             do {
                 newLink = generateNewLink.generate(linkLength);
             } while (linkRepository.findByCuttedLink(newLink) != null);
