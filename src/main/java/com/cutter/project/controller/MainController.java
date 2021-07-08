@@ -3,9 +3,11 @@ package com.cutter.project.controller;
 import com.cutter.project.error.ResourceNotFoundException;
 import com.cutter.project.model.Link;
 import com.cutter.project.service.LinkService;
+import com.sun.istack.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,6 +16,9 @@ import java.util.Map;
 
 @Controller
 public class MainController {
+
+    @Value("${website-link}")
+    private String websiteLink;
 
     private final LinkService linkService;
     private static Logger logger =
@@ -32,13 +37,15 @@ public class MainController {
     @GetMapping("/{link}")
     public ModelAndView redirectFromSite(@PathVariable("link") String link) {
 
-        Link byCuttedLink = linkService.findByCuttedLink("https://cuting-master.herokuapp.com/" + link);
+        Link byCuttedLink = linkService.findByCuttedLink(websiteLink + link);
 
         if (byCuttedLink == null) {
-            throw new ResourceNotFoundException();
+            return new ModelAndView("index");
         }
 
         String linkToRedirect = byCuttedLink.getOriginalLink();
+
+
         return new ModelAndView("redirect:http://" + linkToRedirect);
     }
 
